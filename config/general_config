@@ -1,0 +1,122 @@
+# Path to firmware file
+FIRMWARE_FILE ./firmware/stable_ctime_v6_2018_Feb_14_1119.fpg
+
+# Path to sweep directories
+VNA_SAVEPATH ./test/vna
+TARG_SAVEPATH ./test/targ
+
+# Path for saved streaming data
+DIRFILE_SAVEPATH ./test/dirfiles
+
+NETWORK PARAMS
+# IP address of your Roach2 PowerPC
+roach_ppc_ip 192.168.40.61
+
+# Total UDP packet size, bytes
+buf_size 8234
+
+# Hardcode dds shift value
+#dds_shift 318
+dds_shift 318
+
+# UDP packet header length, bytes
+header_len 42
+
+# Destination IP for UDP packets
+udp_dest_ip 192.168.40.1
+
+# Ethernet device handle corresponding udp_dest_ip (see: ifconfig)
+udp_dest_device enp1s0
+
+# Destination port on eth2 (you choose)
+udp_dst_port 60001
+
+# UDP source IP address (you choose)
+udp_src_ip 192.168.40.11
+
+# UDP source port (you choose)
+udp_src_port 60001
+
+# Roach2 MAC address (hard coded in Roach2)
+udp_src_mac 024401021210
+
+## UDP destination MAC address (mac of eth2)
+udp_dest_mac 28D244FF7A22
+
+ROACH PARAMS
+
+# A list of baseband frequencies
+freq_list 250um_array.npy
+
+# LO step size to be used during VNA/TARG sweeps, Hz
+lo_step 1.0e3
+
+# LO center frequency, MHz
+center_freq 828.0
+
+COMB PARAMS
+
+# Number of frequencies in test comb
+Nfreq 1000
+
+# Maximum positive frequency, Hz
+max_pos_freq 246.001234e6
+
+# Minimum positive frequency, Hz
+min_pos_freq 1.02342e6
+
+# Maximum negative frequency, Hz
+max_neg_freq -1.02342e6
+
+# Minimum negative frequency, Hz
+min_neg_freq -246.001234e6
+
+# Offset between positive and negative combs, Hz
+symm_offset 250.0e3
+
+# A single test frequency, Hz
+test_freq 10.0125e6
+
+RESONANCE_FINDING PARAMS
+
+# Low pass filter cutoff freq, Hz
+smoothing_scale 5.0e6
+
+# Amplitude cutoff threshold, dB (e.g., search points <= -6 dB)
+peak_threshold 6
+
+# Frequency spacing threshold, kHz (if two resonances spaced by <= this amount,
+# choose the deeper one
+spacing_threshold 20.
+
+SYNTHESIZER WINDFREAK
+
+# Synthesizer Windfreak
+synthID WINDFREAK
+
+# Frequency Clock
+clkFreq 512.0e6
+
+# Power Clock
+clkPow 0
+
+# Local Oscillator frequency
+LOFreq 1.036e9
+
+# Local Oscillator Power
+LOPow 14.0
+
+ATTENUATION RUDAT
+
+# Attenuation device
+att_ID_1 50
+att_ID_2 11
+
+# Input attenuation
+attIn 20
+
+# Output attenuation
+attOut 20
+
+# Target RMS voltage to calibrate
+target_rms_mv 1.325
